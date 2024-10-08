@@ -1,0 +1,163 @@
+<head>
+<!--載入bootstrap模組-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!--載入stylesheet.css-->
+<link href="/stylesheet.css" rel="stylesheet">
+<!--載入fontawesome資源-->
+<link rel="stylesheet" href="/css/all.min.css">
+
+</head> 
+
+<body>
+<!--Nav Bar-->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Random Password Generator</a>
+    </div>
+  </nav>
+
+<!--Card-->
+<div class="card">
+  <!--Card Title-->
+  <div class="card-header">
+    Random Password Generator  <i class="fa-solid fa-key"></i>
+  </div>
+
+  <div class="card-body">
+<!--Row1-->
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <form action="/generatedpassword" method="post" id="form1">
+            <label for="rangeofpassword" class="col-form-label"> Password Length</label>
+        </div>
+        <div class="col-6">
+            <input type="number" id="rangeofpassword" name="passwordLength" class="form-control"  min="4" max="16" step="1" aria-describedby="passwordHelpInline">
+        </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <p> </p>
+    </div>
+    <div class="col-6">
+      <span id="passwordHelpInline" class="form-text">
+              Length is available between 4 -16 </span>
+    </div>
+  </div>
+</div>    
+
+<!--Row2 title-->
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <p class="card-text">Include Lowercase Characters</p>
+    </div>
+<!--Row2 answer-->
+    <div class="col-6">
+        <input class="form-check-input" type="checkbox" name="includeLowercase" value="true" id="flexCheckDefault1">
+        <label class="form-check-label" for="flexCheckDefault1">
+          (e.g. abcdefg)
+        </label>
+    </div>
+</div>
+</div>
+
+<!--Row3 title-->
+<div class="container">
+  <div class="row">
+    <div class="col-6">  
+    <p class="card-text">Include Uppercase Characters</p>
+    </div>
+    <!--Row3 answer-->
+    <div class="col-6">
+      <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="includeUppercase" value="true" id="flexCheckDefault2">
+          <label class="form-check-label" for="flexCheckDefault2">
+            (e.g. ABCDEFG)
+          </label>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!--Row4 title-->
+<div class="container">
+  <div class="row">
+    <div class="col-6">  
+      <p class="card-text">Include Numbers</p>
+    </div>
+    <div class="col-6"> 
+      <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="includeNumbers" value="true" id="flexCheckDefault3">
+      <label class="form-check-label" for="flexCheckDefault3">
+      (e.g. 123456)
+      </label>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!--Row5 title-->
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <p class="card-text">Include Symbols</p>
+    </div>
+    <div class="col-6">
+    <div class="form-check">
+      <input class="form-check-input" name="includeSymbols" type="checkbox" value="true" id="flexCheckDefault4">
+      <label class="form-check-label" for="flexCheckDefault4">
+        (e.g. @#$%)
+      </label>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--Row6 title-->
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="inputPassword6" class="col-form-label">Exclude Character</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <input type="text" name="excludeCharacters" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <p>  </p>
+    </div>
+    <div class="col-6">
+      <span id="passwordHelpInline" class="form-text">
+        This character will not appear in the password
+      </span>
+    </div>
+  </div>
+</div>
+<!--Final Result-->
+<div id="finalResultBox">
+  Your Password is :<p id="finalResult">{{password}}</p>
+</div>
+
+<!--Button-->
+ <div class="container">
+  <div class="row">
+    <div class="col-6">
+      <button type="submit" form="form1" class="btn btn-success">Generate password</button>
+    </div>
+  </div>
+</div>
+
+
+</form>
+  </div>
+</div>
+</body>
