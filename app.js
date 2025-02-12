@@ -9,7 +9,7 @@ const port = 3000
 const express = require('express')
 const path = require('path');  // 加入這行來引入 path 模組
 const { create } = require('express-handlebars'); // 引入 create 函式
-const port = 3000
+const port = process.env.PORT || 3000
 const app = express();
 
 // 建立 Handlebars 實例，並設定副檔名為 .hbs, 停用預設佈局
